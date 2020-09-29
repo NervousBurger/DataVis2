@@ -1,86 +1,22 @@
-<!DOCTYPE html>  <!--this is html -->
+<!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>
-            My First Website!
-        </title>
-    </head>
-    <body>
-        <h1>My First Website</h1> <!--title-->
-        <h2>An HTML Playground</h2> <!--subtitle-->
-        <h3>An HTML Playground</h3>
-        <h4>An HTML Playground</h4>
-        <h5>An HTML Playground</h5>
-        <h6>An HTML Playground</h6>
+<head>
+  <!-- Import Vega & Vega-Lite (does not have to be from CDN) -->
+  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@4"></script>
+  <!-- Import vega-embed -->
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+</head>
+<body>
 
-        This is my very first website and i am <b>extremely excited!!!!!</b>
+<div id="vis"></div>
 
-        <p>
-            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
-        </p>
+<script type="text/javascript">
+  var spec = "https://uaena3.github.io/FIT3179/visualization.vl.json";
+  vegaEmbed('#vis', spec).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);
+</script>
 
-        "But<br><br>
-        <b>I must explain to you </b><br>
-        <i>all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth,</i><br>
-        <hr>
-        <a href="https://www.google.com" target="_blank">the master-builder of human happiness. </a>No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?"<br>
-        <br>
-        <img src="https://via.placeholder.com/350x150" border="10">
-
-    <ul> <!--unordered-->
-            <li>
-                apples 
-                <ul>  <!--nest-->
-                    <li>golden delicious</li>
-                    <li>granny smith</li>
-                    <li>gala</li>
-                </ul>
-            </li>
-            <li>oranges</li>
-            <li>pineapples</li>
-            <li>mangoes</li>
-            <li>dragonfruit</li>
-    </ul>
-    <table border="10" cellpadding="10" cellspacing="0">
-        <tr>
-            <th></th>
-            <th>Month</th>
-            <th>Rent</th>
-            <th colspan="2">Utilities</th>
-            <th>Eating out</th>
-            <th>Entertainment</th>
-        </tr>
-        <tr>
-            <td rowspan="3">Fall</td>
-            <td>June</td>
-            <td>$1950</td>
-            <td>$100</td>
-            <td>$50</td>
-            <td>$100</td>
-            <td>$500</td>
-        </tr>
-        <tr>
-            <td>July</td>
-            <td>$1950</td>
-            <td>$100</td>
-            <td>$50</td>
-            <td>$100</td>
-            <td>$500</td>
-        </tr>
-        <tr>
-            <td>August</td>
-            <td>$1950</td>
-            <td>$100</td>
-            <td>$50</td>
-            <td>$100</td>
-            <td>$500</td>
-        </tr>
-    </table>
-
-    </body>
+</body>
 </html>
-
-
-
