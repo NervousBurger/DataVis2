@@ -1,59 +1,36 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-  "description": "A simple bar chart with embedded data.",
+  "description": "A bar chart that directly encodes color names in the data.",
   "data": {
     "values": [
       {
-        "a": "A",
+        "color": "red",
         "b": 28
       },
       {
-        "a": "B",
+        "color": "green",
         "b": 55
       },
       {
-        "a": "C",
+        "color": "blue",
         "b": 43
-      },
-      {
-        "a": "D",
-        "b": 91
-      },
-      {
-        "a": "E",
-        "b": 81
-      },
-      {
-        "a": "F",
-        "b": 53
-      },
-      {
-        "a": "G",
-        "b": 19
-      },
-      {
-        "a": "H",
-        "b": 87
-      },
-      {
-        "a": "I",
-        "b": 52
       }
     ]
   },
   "mark": "bar",
   "encoding": {
     "x": {
-      "field": "a",
-      "type": "nominal",
-      "axis": {
-        "labelAngle": 0
-      }
+      "field": "color",
+      "type": "nominal"
     },
     "y": {
       "field": "b",
       "type": "quantitative"
+    },
+    "color": {
+      "field": "color",
+      "type": "nominal",
+      "scale": null
     }
-  },
-  "config": {}
+  }
 }
