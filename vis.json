@@ -1,36 +1,32 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-  "description": "A bar chart that directly encodes color names in the data.",
+  "width": 500,
+  "height": 300,
   "data": {
-    "values": [
-      {
-        "color": "red",
-        "b": 28
-      },
-      {
-        "color": "green",
-        "b": 55
-      },
-      {
-        "color": "blue",
-        "b": 43
-      }
-    ]
+    "url": "data/us-10m.json",
+    "format": {
+      "type": "topojson",
+      "feature": "counties"
+    }
   },
-  "mark": "bar",
+  "transform": [{
+    "lookup": "id",
+    "from": {
+      "data": {
+        "url": "data/unemployment.tsv"
+      },
+      "key": "id",
+      "fields": ["rate"]
+    }
+  }],
+  "projection": {
+    "type": "albersUsa"
+  },
+  "mark": "geoshape",
   "encoding": {
-    "x": {
-      "field": "color",
-      "type": "nominal"
-    },
-    "y": {
-      "field": "b",
-      "type": "quantitative"
-    },
     "color": {
-      "field": "color",
-      "type": "nominal",
-      "scale": null
+      "field": "rate",
+      "type": "quantitative"
     }
   }
 }
