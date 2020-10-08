@@ -1,32 +1,49 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-  "width": 500,
-  "height": 300,
+  "description": "Vega-Lite version of bar chart from https://observablehq.com/@d3/learn-d3-scales.",
+  "width": 400,
   "data": {
-    "url": "data/us-10m.json",
-    "format": {
-      "type": "topojson",
-      "feature": "counties"
-    }
+    "values": [
+      {"name": "🍊", "count": 21},
+      {"name": "🍇", "count": 13},
+      {"name": "🍏", "count": 8},
+      {"name": "🍌", "count": 5},
+      {"name": "🍐", "count": 3},
+      {"name": "🍋", "count": 2},
+      {"name": "🍎", "count": 1},
+      {"name": "🍉", "count": 1}
+    ]
   },
-  "transform": [{
-    "lookup": "id",
-    "from": {
-      "data": {
-        "url": "data/unemployment.tsv"
-      },
-      "key": "id",
-      "fields": ["rate"]
-    }
-  }],
-  "projection": {
-    "type": "albersUsa"
-  },
-  "mark": "geoshape",
   "encoding": {
-    "color": {
-      "field": "rate",
-      "type": "quantitative"
+    "y": {"field": "name", "type": "nominal", "sort": "-x", "title": null},
+    "x": {"field": "count", "type": "quantitative", "title": null}
+  },
+  "layer": [{
+    "mark": "bar",
+    "encoding": {
+      "color": {
+        "field": "count",
+        "type": "quantitative",
+        "title": "Number of fruit"
+      }
     }
-  }
+  }, {
+    "mark": {
+      "type": "text",
+      "align": "right",
+      "xOffset": -4,
+      "aria": false
+    },
+    "encoding": {
+      "text": {"field": "count", "type": "quantitative"},
+      "color": {
+        "condition": {
+          "test": {"field": "count", "gt": 10},
+          "value": "white"
+        },
+        "value": "black"
+      }
+    }
+  }]
 }
+
