@@ -40,7 +40,7 @@ var config = {
     },
     tooltip: [
       { field: "properties.name", title: "Country" },
-      { field: "count", title:"Count" },
+      { field: "count", title: "Count" },
     ],
   },
 };
