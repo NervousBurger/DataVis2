@@ -12,14 +12,14 @@ var config = {
     fontWeight: "bold",
   },
   data: {
-    url: "terroris.json",
+    url: "https://raw.githubusercontent.com//uaena3/FIT3179/master/terroris.json",
     format: { type: "topojson", feature: "custom" },
   },
   transform: [
     {
       lookup: "properties.name",
       from: {
-        data: { url: "countries.csv" },
+        data: { url: "https://raw.githubusercontent.com//uaena3/FIT3179/master/countries.csv" },
         key: "country",
         fields: ["count"],
       },
