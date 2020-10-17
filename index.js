@@ -31,7 +31,7 @@ var config = {
     color: {
       field: "count",
       type: "quantitative",
-      title: "Number of Terroist attacks",
+      title: "Number of Terrorist attacks",
       scale: {
         type: "threshold",
         domain: [100, 1000, 10000],
