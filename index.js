@@ -45,22 +45,11 @@ var config = {
   },
 };
 
-// vegaEmbed("#vis", config);
-
-// d3.json("AU.json").then((data) => {
-//   console.log(data);
-// });
-// d3.csv("austrialia.csv").then((data) => {
-//   console.log(data);
-// });
-
-//state map
-
 const state = {
-  width: 500,
+  width: 1100,
   height: 400,
   title: {
-    text: "attacked count by state  in australia from 1970 to 2017",
+    text: "Attack count by state from 1970 to 2017",
     fontSize: 20,
     color: "#393e46",
   },
@@ -209,118 +198,3 @@ const line = {
 };
 vegaEmbed("#time", line);
 
-const attackType = {
-  title: {text:"Analysis of attack types, targets and weapon types",fontSize:25,
-subtitle:'Filter one area of the left image to interact with the two charts on the right',subtitleFontSize:15,subtitlePadding:10
-},
-  data: {
-    url: "auterrois.csv",
-  },
-  transform: [{ calculate: "datum.nkill*1+datum.nwound*1", as: "Casualties" }],
-  hconcat: [
-    {
-      width: 500,
-      height: 400,
-      mark: {
-        type: "circle",
-        opacity: 0.8,
-        stroke: "black",
-        strokeWidth: 1,
-        tooltip: true,
-      },
-      selection: {
-        brush: {
-          type: "interval",
-        },
-      },
-      encoding: {
-        x: {
-          field: "iyear",
-          type: "nominal",
-          axis: { grid: false },
-        },
-        y: { field: "attacktype1_txt", type: "nominal", axis: { title: "" } },
-        detail: { field: "eventid" },
-
-        size: {
-          field: "Casualties",
-          type: "quantitative",
-          title: "Annual  Casualties",
-          legend: { clipHeight: 30 },
-          scale: { rangeMax: 2000 },
-        },
-        color: { field: "attacktype1_txt", type: "nominal", legend: null },
-        tooltip: [
-          { field: "addnotes" },
-          { field: "Casualties" },
-          { field: "iyear", title: "Year" },
-          { field: "attacktype1_txt", title: "Attacktype" },
-          { field: "weapsubtype1_txt", title: "Weapon Subtype" },
-          { field: "nkill", title: "kill" },
-          { field: "nwound", title: "Wound" },
-        ],
-      },
-    },
-    {
-      width: 500,
-      height: 400,
-      transform: [{ filter: { selection: "brush" } }],
-
-      encoding: {
-        x: {
-          field: "targtype1_txt",
-          sort: { op: "count", field: "targtype1_txt", order: "descending" },
-        },
-        y: { aggregate: "count" },
-        color: {
-          value: "#f07b3f",
-        },
-
-        tooltip: [{ aggregate: "sum", field: "Casualties" }],
-      },
-      layer: [
-        {
-          mark: { type: "bar" },
-        },
-        {
-          mark: { type: "text", baseline: "bottom" },
-          encoding: {
-            text: { aggregate: "count" },
-          },
-        },
-      ],
-    },
-    //weaptype1_txt
-    {
-      width: 500,
-      height: 400,
-      transform: [{ filter: { selection: "brush" } }],
-
-      encoding: {
-        x: {
-          field: "weaptype1_txt",
-          sort: { op: "count", field: "weaptype1_txt", order: "descending" },
-        },
-        y: { aggregate: "count" },
-        color: {
-          value: "#ea5455",
-        },
-
-        tooltip: [{ aggregate: "sum", field: "Casualties" }],
-      },
-      layer: [
-        {
-          mark: { type: "bar" },
-        },
-        {
-          mark: { type: "text", baseline: "bottom" },
-          encoding: {
-            text: { aggregate: "count" },
-          },
-        },
-      ],
-    },
-  ],
-};
-
-vegaEmbed("#attackType", attackType);
