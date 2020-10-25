@@ -81,7 +81,7 @@ const state = {
           },
         },
         tooltip: [
-          { field: "State" },
+          { field: "state" },
           { field: "count", title: "Number of Attacks " },
         ],
       },
