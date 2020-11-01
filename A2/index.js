@@ -338,7 +338,7 @@ const attackType = {
           type: "nominal",
           legend: {
             orient: "right",
-            title:"Legend"
+            title:"Type"
           },
           scale: {
             scheme: "category20b",
